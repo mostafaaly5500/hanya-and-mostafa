@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanya &amp; Mostafa Wedding</title>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon placeholder (optional) -->
+  <link rel="icon" href="images/hero.jpg">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#details">Details</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#location">Location</a>
+      <a href="#qr">QR Code</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="kicker">We're getting married!</div>
+    <h1>Hanya &amp; Mostafa</h1>
+    <div class="meta">Friday, November&nbsp;28,&nbsp;2025&nbsp;|&nbsp;Crowne Plaza Arkan, Sheikh Zayed</div>
+    <a href="#rsvp" class="btn">RSVP Now</a>
+    <!-- Countdown -->
+    <div id="countdown" class="countdown" data-target-date="2025-11-28T17:00:00+02:00">
+      <div class="box">
+        <span class="num" data-unit="days">--</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="box">
+        <span class="num" data-unit="hours">--</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="box">
+        <span class="num" data-unit="minutes">--</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="box">
+        <span class="num" data-unit="seconds">--</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="section">
+    <div class="card">
+      <div class="kicker">Our Story</div>
+      <h2>How We Met</h2>
+      <p>
+        Every great love story starts with a little serendipity. Ours began when fate brought
+        us together in Cairo. A chance encounter blossomed into friendship and soon grew into
+        the deep love we share today. We are thrilled to start this new chapter and would be
+        honored to have you celebrate alongside us.
+      </p>
+    </div>
+  </section>
+
+  <!-- Details Section -->
+  <section id="details" class="section">
+    <div class="card">
+      <div class="kicker">Event Details</div>
+      <h2>Wedding Details</h2>
+      <ul class="details">
+        <li><strong>Date:</strong> Friday, 28 November&nbsp;2025</li>
+        <li><strong>Time:</strong> 5:00&nbsp;PM&nbsp;&ndash;&nbsp;Midnight</li>
+        <li><strong>Venue:</strong> Crowne Plaza West Cairo&nbsp;Arkan, Sheikh Zayed City</li>
+        <li><strong>Dress Code:</strong> Black Tie</li>
+        <li><strong>Capacity:</strong> Our pillar‑less Gala ballroom can comfortably accommodate up to 500 guests</li>
+      </ul>
+      <p>
+        Part of the iconic Arkan Plaza complex, Crowne Plaza West Cairo&nbsp;Arkan is located in the
+        heart of Sheikh Zayed City just off the 26th of July Corridor. The hotel is about a 38‑minute
+        drive from Cairo International Airport, making it easily accessible for our friends and family
+        traveling from around the world.
+      </p>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="section">
+    <div class="card">
+      <div class="kicker">Schedule</div>
+      <h2>Wedding Day Timeline</h2>
+      <div class="timeline">
+        <div class="row"><span class="time">5:00&nbsp;PM</span><span class="dot"></span><span>Ceremony begins</span></div>
+        <div class="row"><span class="time">6:00&nbsp;PM</span><span class="dot"></span><span>Cocktail hour &amp; photos</span></div>
+        <div class="row"><span class="time">7:00&nbsp;PM</span><span class="dot"></span><span>Dinner is served</span></div>
+        <div class="row"><span class="time">8:30&nbsp;PM</span><span class="dot"></span><span>Speeches &amp; toasts</span></div>
+        <div class="row"><span class="time">9:00&nbsp;PM</span><span class="dot"></span><span>Dancing begins</span></div>
+        <div class="row"><span class="time">11:30&nbsp;PM</span><span class="dot"></span><span>Send off &amp; after party</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="card">
+      <div class="kicker">Gallery</div>
+      <h2>Our Engagement</h2>
+      <div class="gallery">
+        <img src="images/hero.jpg" alt="Hanya &amp; Mostafa together">
+        <img src="images/bw.jpg" alt="Black and white moment">
+        <img src="images/smile.jpg" alt="Hanya &amp; Mostafa smiling">
+        <img src="images/bouquet.jpg" alt="Bouquet celebration">
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="section rsvp">
+    <div class="card">
+      <div class="kicker">RSVP</div>
+      <h2>Join Our Celebration</h2>
+      <p>Please let us know if you'll be joining us on our special day.</p>
+      <form action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST">
+        <!-- formsubmit hidden inputs -->
+        <input type="hidden" name="_subject" value="Wedding RSVP">
+        <!-- Send a copy of the RSVP to Hanya as well -->
+        <input type="hidden" name="_cc" value="hanyatamer5@gmail.com">
+        <!-- Disable default captcha so guests don't have to solve puzzles -->
+        <input type="hidden" name="_captcha" value="false">
+        <div class="row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="row">
+          <input type="number" name="guests" placeholder="Number of Guests" min="1" max="10" required>
+          <input type="text" name="food" placeholder="Dietary Preferences">
+        </div>
+        <textarea name="message" placeholder="Message / Song Request"></textarea>
+        <button type="submit" class="btn">Send RSVP</button>
+        <p class="note">
+          Once submitted, you'll receive a confirmation email. Thank you for helping us plan our big day!
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="section">
+    <div class="card">
+      <div class="kicker">Location</div>
+      <h2>Getting There</h2>
+      <p>
+        Crowne Plaza West Cairo&nbsp;Arkan sits in the vibrant Arkan Plaza complex in Sheikh Zayed City,
+        right off the 26th of July Corridor. The venue is about a 38‑minute drive from Cairo
+        International Airport and is close to numerous dining and shopping destinations. Use
+        the interactive map below to plan your route.
+      </p>
+      <!-- Embed Google Map showing the venue. The query parameter automatically searches for the hotel. -->
+      <iframe class="map" src="https://maps.google.com/maps?q=Crowne%20Plaza%20West%20Cairo%20Arkan%20Sheikh%20Zayed&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
+
+      <!-- Optional: link to open the map directly via the Google Maps link provided by the couple -->
+      <p style="text-align:center;margin-top:15px;">
+        <a href="https://maps.app.goo.gl/15Rx1cthzwtm6NBx8?g_st=ipc" target="_blank" class="btn" style="text-decoration:none;">
+          Open in Google Maps
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- QR Code Section -->
+  <section id="qr" class="section">
+    <div class="card">
+      <div class="kicker">Share The Love</div>
+      <h2>Scan to Save the Date</h2>
+      <p>
+        Point your phone's camera at the QR code below to quickly access this website and save
+        the details to your calendar. Feel free to include the QR code on printed invitations too!
+      </p>
+      <img class="qr-image" src="images/qr.png" alt="QR code for wedding website">
+      <p class="note">
+        If you plan to host the site at a different URL, you can generate a new QR code by replacing
+        <code>images/qr.png</code> with your own code from any free QR generator.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Hanya &amp; Mostafa – All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <!-- Inline backup script to ensure countdown and smooth scrolling still work if external files fail to load -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scrolling for nav links
+      const navLinks = document.querySelectorAll('.nav a');
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href');
+          if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const section = document.querySelector(targetId);
+            if (section) {
+              section.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+      // Countdown logic
+      const countdownElement = document.getElementById('countdown');
+      if (countdownElement) {
+        const targetDateString = countdownElement.getAttribute('data-target-date');
+        const targetDate = new Date(targetDateString);
+        const units = {
+          days: countdownElement.querySelector('[data-unit="days"]'),
+          hours: countdownElement.querySelector('[data-unit="hours"]'),
+          minutes: countdownElement.querySelector('[data-unit="minutes"]'),
+          seconds: countdownElement.querySelector('[data-unit="seconds"]'),
+        };
+        function updateCountdown() {
+          const now = new Date();
+          const diff = targetDate - now;
+          if (diff <= 0) {
+            units.days.textContent = '0';
+            units.hours.textContent = '0';
+            units.minutes.textContent = '0';
+            units.seconds.textContent = '0';
+            return;
+          }
+          const seconds = Math.floor(diff / 1000) % 60;
+          const minutes = Math.floor(diff / (1000 * 60)) % 60;
+          const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          units.days.textContent = days;
+          units.hours.textContent = hours.toString().padStart(2, '0');
+          units.minutes.textContent = minutes.toString().padStart(2, '0');
+          units.seconds.textContent = seconds.toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    });
+  </script>
+</body>
+</html>

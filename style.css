@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary: #e0487d;
+  --secondary: #7b5cf0;
+  --light-bg: #fff8fb;
+  --dark-text: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--light-bg);
+  color: var(--dark-text);
+  line-height: 1.7;
+}
+
+/* Navigation bar */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #eee;
+}
+
+.nav .wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--dark-text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.nav a:hover {
+  background: #f3f3f3;
+}
+
+/* Hero section */
+.hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 80px 20px;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero .kicker {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #ffffffcc;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin: 15px 0;
+}
+
+.hero .meta {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.3s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+/* Countdown styles */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.countdown .box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 70px;
+}
+
+.countdown .num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.countdown .label {
+  font-size: 12px;
+  color: #ffffffcc;
+}
+
+/* Generic section styling */
+.section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.kicker {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #7b7b7b;
+  margin-bottom: 10px;
+}
+
+.details {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.details li {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+/* Timeline */
+.timeline {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.timeline .row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.timeline .time {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.timeline .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+@media (min-width: 750px) {
+  .gallery {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* RSVP form */
+.rsvp form .row {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .rsvp form .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e2e2;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.rsvp .note {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Map */
+.map {
+  border: 0;
+  width: 100%;
+  height: 380px;
+  border-radius: 16px;
+}
+
+/* Footer */
+footer {
+  margin: 50px 0 30px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* QR section */
+#qr .qr-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+}
