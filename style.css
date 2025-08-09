@@ -62,7 +62,8 @@ body {
   text-align: center;
   color: #fff;
   padding: 80px 20px;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url('images/hero.jpg');
+/* The hero section uses the main photo as a backdrop. The file now lives in the repository root, so remove the images/ prefix. */
+background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url('hero.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
