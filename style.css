@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+/* The template imports fonts for headings and body text. These are overridden by
+   the custom font imports defined in index.html. We keep this import in case
+   Google Fonts fails to load, falling back to Poppins. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --primary: #e0487d;
-  --secondary: #7b5cf0;
-  --light-bg: #fff8fb;
-  --dark-text: #333;
+  /* Soft, modern palette inspired by popular wedding websites: dusty rose for
+     primary accents, sage green for secondary accents and pale gold for
+     highlights. */
+  --primary: #d79d9d;
+  --secondary: #a8c89f;
+  --tertiary: #f2e8c9;
+  --light-bg: #fff8f7;
+  --dark-text: #2c2c2c;
 }
 
 * {
@@ -13,7 +20,8 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  /* Use Raleway for body text with Great Vibes and Playfair Display imported in the HTML */
+  font-family: 'Raleway', 'Poppins', sans-serif;
   background: var(--light-bg);
   color: var(--dark-text);
   line-height: 1.7;
@@ -49,7 +57,7 @@ body {
 }
 
 .nav a:hover {
-  background: #f3f3f3;
+  background: var(--tertiary);
 }
 
 /* Hero section */
@@ -77,9 +85,10 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 56px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 68px;
   margin: 15px 0;
+  letter-spacing: 1px;
 }
 
 .hero .meta {
@@ -91,7 +100,7 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
   display: inline-block;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: #fff;
-  padding: 14px 28px;
+  padding: 14px 32px;
   border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
@@ -99,7 +108,7 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
 }
 
 .btn:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.1);
 }
 
 /* Countdown styles */
@@ -140,11 +149,11 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #f0ece9;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  padding: 36px;
 }
 
 .card h2 {
@@ -154,11 +163,11 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
 }
 
 .kicker {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 13px;
-  color: #7b7b7b;
-  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--secondary);
+  margin-bottom: 12px;
 }
 
 .details {
@@ -266,9 +275,19 @@ footer {
   font-size: 14px;
 }
 
-/* QR section */
-#qr .qr-image {
-  display: block;
-  margin: 20px auto;
-  max-width: 200px;
+/* Guest counter badge */
+.guest-counter {
+  display: inline-block;
+  background: var(--secondary);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Save the Date section overrides */
+#save-date .btn {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
 }

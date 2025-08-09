@@ -52,4 +52,46 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
   }
+
+  // Guest count display using CountAPI.
+  const guestCounterEl = document.getElementById('guestCounter');
+  if (guestCounterEl) {
+    // Fetch current guest count and show badge
+    fetch('https://api.countapi.xyz/get/hanya_mostafa_wedding/guestCount')
+      .then((res) => res.json())
+      .then((data) => {
+        guestCounterEl.style.display = 'inline-block';
+        guestCounterEl.textContent = `Confirmed Guests: ${data.value ?? 0}`;
+      })
+      .catch(() => {
+        // If the counter hasn't been created yet or fails, hide the badge
+        guestCounterEl.style.display = 'none';
+      });
+  }
+
+  // Intercept RSVP form submission to update guest counter
+  const rsvpForm = document.querySelector('#rsvp form');
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (event) => {
+      const guestsInput = rsvpForm.querySelector('input[name="guests"]');
+      const guestAmount = parseInt(guestsInput && guestsInput.value, 10) || 1;
+      // Send update request to CountAPI and then submit the form
+      fetch(`https://api.countapi.xyz/update/hanya_mostafa_wedding/guestCount?amount=${guestAmount}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (guestCounterEl) {
+            guestCounterEl.style.display = 'inline-block';
+            guestCounterEl.textContent = `Confirmed Guests: ${data.value}`;
+          }
+          // After updating the counter, allow the form to submit normally
+          rsvpForm.submit();
+        })
+        .catch(() => {
+          // Even if update fails, still submit the form
+          rsvpForm.submit();
+        });
+      // Prevent the default immediate submission to wait for the update call
+      event.preventDefault();
+    });
+  }
 });
