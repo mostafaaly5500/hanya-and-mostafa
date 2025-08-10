@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
           section.scrollIntoView({ behavior: 'smooth' });
         }
       }
+      // On small screens, close the nav menu after clicking a link
+      const nav = document.querySelector('.nav');
+      if (nav && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+      }
     });
   });
 
@@ -92,6 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       // Prevent the default immediate submission to wait for the update call
       event.preventDefault();
+    });
+  }
+
+  // Mobile navigation toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
     });
   }
 });

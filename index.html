@@ -13,7 +13,13 @@
 </head>
 <body>
   <!-- Navigation -->
+  <!-- Responsive navigation bar. On mobile we show a hamburger icon that toggles the menu. -->
   <nav class="nav">
+    <div class="nav-toggle" aria-label="Toggle navigation" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <div class="wrap">
       <a href="#home">Home</a>
       <a href="#story">Our Story</a>
@@ -110,10 +116,10 @@
       <div class="kicker">Gallery</div>
       <h2>Our Engagement</h2>
       <div class="gallery">
-        <img src="hero.jpg" alt="Hanya &amp; Mostafa together">
-        <img src="bw.jpg" alt="Black and white moment">
-        <img src="smile.jpg" alt="Hanya &amp; Mostafa smiling">
-        <img src="bouquet.jpg" alt="Bouquet celebration">
+        <img src="hero.jpg" alt="Hanya &amp; Mostafa together" loading="lazy">
+        <img src="bw.jpg" alt="Black and white moment" loading="lazy">
+        <img src="smile.jpg" alt="Hanya &amp; Mostafa smiling" loading="lazy">
+        <img src="bouquet.jpg" alt="Bouquet celebration" loading="lazy">
       </div>
     </div>
   </section>
@@ -125,7 +131,7 @@
       <h2>Join Our Celebration</h2>
       <p>Please let us know if you'll be joining us on our special day.</p>
       <!-- Live guest counter displays total confirmed attendees based on RSVP submissions -->
-      <div id="guestCounter" class="guest-counter" style="display:none">Confirmed Guests: 0</div>
+      <div id="guestCounter" class="guest-counter">Confirmed Guests: 0</div>
       <form action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST">
         <!-- formsubmit hidden inputs -->
         <input type="hidden" name="_subject" value="Wedding RSVP">
