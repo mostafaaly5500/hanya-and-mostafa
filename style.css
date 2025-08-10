@@ -70,8 +70,8 @@ body {
   text-align: center;
   color: #fff;
   padding: 80px 20px;
-/* The hero section uses the main photo as a backdrop. The file now lives in the repository root, so remove the images/ prefix. */
-background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url('hero.jpg');
+/* The hero section uses the main photo as a backdrop. A darker overlay helps the white text remain readable across devices. */
+background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)), url('hero.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -209,22 +209,26 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5
 /* Gallery */
 .gallery {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   margin-top: 20px;
+  /* Define an adaptive grid that automatically fills available space
+     with columns of at least 200px.  This keeps thumbnails neat on
+     desktop and mobile without hard‑coding column counts. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .gallery img {
+  /* Ensure images display uniformly by using an aspect‑ratio and letting the
+     browser determine the height automatically.  This avoids extreme
+     vertical stretching while still cropping nicely. */
   width: 100%;
-  height: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 14px;
 }
 
-@media (min-width: 750px) {
-  .gallery {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-}
+/* Remove custom column sizes on larger screens – the adaptive grid
+   above handles layout across breakpoints. */
 
 /* RSVP form */
 .rsvp form .row {
