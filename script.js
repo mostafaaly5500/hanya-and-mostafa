@@ -75,13 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Intercept RSVP form submission to update guest counter
-    const rsvpForm = document.querySelector('#rsvp form');
+  const rsvpForm = document.querySelector('#rsvp form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      // Grab the selected number of guests from the dropdown
-      const guestsSelect = rsvpForm.querySelector('select[name="guests"]');
-      const guestAmount = parseInt(guestsSelect && guestsSelect.value, 10) || 1;
+      // Get the number of guests from either a select or input. Our form uses a select
+      const guestsField = rsvpForm.querySelector('[name="guests"]');
+      const guestAmount = parseInt(guestsField && guestsField.value, 10) || 1;
       // Prepare data for optional Google Sheet logging
       const data = {
         first_name: rsvpForm.querySelector('input[name="first_name"]')?.value || '',
