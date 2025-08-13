@@ -132,8 +132,7 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
 .countdown .num {
   display: block;
   font-family: 'Playfair Display', serif;
-  /* Make the countdown numbers larger for better emphasis */
-  font-size: 36px;
+  font-size: 30px;
   color: #fff;
 }
 
@@ -204,8 +203,7 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  /* Use the primary colour for the timeline dots to match the time text */
-  background: var(--primary);
+  background: var(--secondary);
 }
 
 /* Gallery */
@@ -252,30 +250,6 @@ textarea {
   border: 1px solid #e2e2e2;
   font-family: inherit;
   font-size: 16px;
-  /* Use the same text colour for all input types */
-  color: var(--dark-text);
-}
-
-/* Ensure number inputs use the same text colour as other inputs */
-input[type="number"] {
-  color: var(--dark-text);
-}
-
-/* Ensure number inputs match the appearance of other text fields */
-input[type="number"] {
-  /* Remove native spin buttons for a cleaner look */
-  -moz-appearance: textfield;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Consistent placeholder text colour across inputs and textarea */
-input::placeholder,
-textarea::placeholder {
-  color: #999;
 }
 
 textarea {
