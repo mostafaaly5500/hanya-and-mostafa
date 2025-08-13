@@ -24,10 +24,10 @@
       <a href="#home">Home</a>
       <!-- Removed "Our Story" link -->
       <a href="#details">Details</a>
-      <a href="#schedule">Schedule</a>
       <!-- Removed "Gallery" link -->
       <a href="#rsvp">RSVP</a>
       <a href="#location">Location</a>
+      <a href="#travel">Travel &amp; Stay</a>
       <a href="#save-date">Save the Date</a>
     </div>
   </nav>
@@ -39,7 +39,7 @@
     <div class="meta">Friday, November&nbsp;28,&nbsp;2025&nbsp;|&nbsp;Crowne Plaza Arkan, Sheikh Zayed</div>
     <a href="#rsvp" class="btn">RSVP Now</a>
     <!-- Countdown -->
-    <div id="countdown" class="countdown" data-target-date="2025-11-28T17:00:00+02:00">
+    <div id="countdown" class="countdown" data-target-date="2025-11-28T18:00:00+02:00">
       <div class="box">
         <span class="num" data-unit="days">--</span>
         <span class="label">Days</span>
@@ -58,8 +58,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- Story Section -->
   <section id="story" class="section" style="display:none;">
@@ -84,38 +82,13 @@
         <li><strong>Date:</strong> Friday, 28 November&nbsp;2025</li>
         <li><strong>Time:</strong> 6:00&nbsp;PM&nbsp;&ndash;&nbsp;Midnight</li>
         <li><strong>Venue:</strong> Crowne Plaza West Cairo&nbsp;Arkan, Sheikh Zayed City</li>
-        <li><strong>Dress Code:</strong> Black Tie</li>
+        <li><strong>Dress Code:</strong> Black Tie / Formal</li>
         <!-- Capacity removed -->
       </ul>
       <!-- Removed detailed venue description paragraph -->
-
-      <!-- Travel & Accommodation Information -->
-      <h3>Travel & Accommodation</h3>
-      <p>
-        For those traveling from out of town, we recommend staying at the Crowne Plaza West Cairo Arkan
-        or nearby hotels within the Arkan Plaza complex. The venue is conveniently located in Sheikh
-        Zayed City, approximately a 40‑minute drive from Cairo International Airport. Ride‑share and taxi
-        services are readily available, and the hotel concierge can assist with transportation or group
-        rates. We look forward to celebrating with you!
-      </p>
     </div>
   </section>
 
-  <!-- Schedule Section -->
-  <section id="schedule" class="section">
-    <div class="card">
-      <div class="kicker">Schedule</div>
-      <h2>Wedding Day Timeline</h2>
-      <div class="timeline">
-        <div class="row"><span class="time">5:00&nbsp;PM</span><span class="dot"></span><span>Ceremony begins</span></div>
-        <div class="row"><span class="time">6:00&nbsp;PM</span><span class="dot"></span><span>Cocktail hour &amp; photos</span></div>
-        <div class="row"><span class="time">7:00&nbsp;PM</span><span class="dot"></span><span>Dinner is served</span></div>
-        <div class="row"><span class="time">8:30&nbsp;PM</span><span class="dot"></span><span>Speeches &amp; toasts</span></div>
-        <div class="row"><span class="time">9:00&nbsp;PM</span><span class="dot"></span><span>Dancing begins</span></div>
-        <div class="row"><span class="time">11:30&nbsp;PM</span><span class="dot"></span><span>Send off &amp; after party</span></div>
-      </div>
-    </div>
-  </section>
 
   <!-- Gallery Section -->
   <section id="gallery" class="section" style="display:none;">
@@ -147,36 +120,35 @@
         <!-- Disable default captcha so guests don't have to solve puzzles -->
         <input type="hidden" name="_captcha" value="false">
         <div class="row">
-          <input type="text" name="first_name" placeholder="First Name" required>
-          <input type="text" name="last_name" placeholder="Last Name" required>
+          <!-- Mark required fields with an asterisk so guests know they are mandatory -->
+          <input type="text" name="first_name" placeholder="First Name *" required>
+          <input type="text" name="last_name" placeholder="Last Name *" required>
         </div>
         <div class="row">
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="number" name="guests" placeholder="Number of Guests" min="1" max="10" required>
+          <input type="email" name="email" placeholder="Your Email *" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
+          <!-- Change the guest count field to a dropdown list for easier selection and mark as required -->
+          <select name="guests" required class="guest-select">
+            <option value="" disabled selected>Number of Guests *</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
+        <!-- Note to remind guests to include themselves when selecting the number of attendees -->
+        <p class="note" style="margin-top:-5px; font-size: 13px; color: #666;">Please include yourself when selecting the number of guests.</p>
         <textarea name="message" placeholder="Message / Song Request"></textarea>
         <button type="submit" class="btn">Send RSVP</button>
         <p class="note">
-          Once submitted, you'll receive a confirmation email. Thank you for helping us plan our big day!
+          Kindly RSVP by <strong>September&nbsp;10,&nbsp;2025</strong>. Once submitted, you'll receive a confirmation email.
         </p>
       </form>
-    </div>
-  </section>
-
-  <!-- Save the Date Section (moved below RSVP) -->
-  <section id="save-date" class="section">
-    <div class="card">
-      <div class="kicker">Save The Date</div>
-      <h2>Add To Your Calendar</h2>
-      <p>
-        Keep our big day close at hand! Tap the button below to download an event file and
-        add our wedding to your favourite calendar app. Once added, your calendar will send
-        you automatic reminders so you never miss the celebration.
-      </p>
-      <!-- Button links to downloadable .ics file -->
-      <a href="event.ics" download class="btn" style="margin-top:10px;">Add to Calendar</a>
-      <p class="note">Most phones will ask to import the event after downloading. You can set
-        your own reminders inside your calendar app.</p>
     </div>
   </section>
 
@@ -203,7 +175,52 @@
     </div>
   </section>
 
-  <!-- QR Code and original Save the Date Section removed -->
+  <!-- Travel & Stay Section -->
+  <section id="travel" class="section">
+    <div class="card">
+      <div class="kicker">Travel &amp; Accommodation</div>
+      <h2>Travel &amp; Stay</h2>
+      <p>
+        We want your journey to be seamless. Here are some helpful tips on getting to and staying near our venue.
+      </p>
+      <h3>Hotel at the Venue</h3>
+      <p>
+        Stay right where the celebration takes place!
+        <a href="https://www.ihg.com/crowneplaza/hotels/us/en/cairo/caisz/hoteldetail?fromRedirect=true&qSrt=sBR&qSlH=caisz&setPMCookies=true&qSHBrC=CP&qDest=Plot%2029%2C%20Arkan%20Plaza%2C%20Zayed%20Entrance%202%2C%20Cairo%2C%20EG&srb_u=1" target="_blank">
+          Book a room at Crowne Plaza West Cairo Arkan
+        </a>
+        to enjoy the convenience of being just steps away from the festivities.
+      </p>
+      <h3>Transportation &amp; Parking</h3>
+      <ul class="details">
+        <li>Use ride‑hailing apps like <strong>Uber</strong> or <strong>London Cab</strong> to reach the venue quickly and comfortably.</li>
+        <li>On‑site valet parking is available at Crowne Plaza for your convenience.</li>
+      </ul>
+      <p>
+        Arkan Plaza also offers covered parking garages. Simply follow the signs for event parking and the attendants will direct you.
+      </p>
+    </div>
+  </section>
+
+  <!-- QR Code Section -->
+  <!-- Save the Date Section -->
+  <section id="save-date" class="section">
+    <div class="card">
+      <div class="kicker">Save The Date</div>
+      <h2>Add To Your Calendar</h2>
+      <p>
+        Keep our big day close at hand! Tap the button below to download an event file and
+        add our wedding to your favourite calendar app. Once added, your calendar will send
+        you automatic reminders so you never miss the celebration.
+      </p>
+      <!-- Single button to download the universal event file (works on both iOS and Android) -->
+      <a href="event.ics" download class="btn" style="margin-top:10px;">Add to Calendar</a>
+      <p class="note">After adding the event, please check that your calendar app has a reminder set to alert you ahead of time.</p>
+
+      <!-- Note: Guests who RSVP will receive a friendly reminder via email one week before the wedding. -->
+      <p class="note" style="margin-top:20px;">If you RSVP, we'll send you a reminder one week before the wedding.</p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>

@@ -234,6 +234,8 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
 .rsvp form .row {
   display: grid;
   gap: 12px;
+  /* Ensure equal vertical spacing between input rows */
+  margin-bottom: 12px;
 }
 
 @media (min-width: 600px) {
@@ -255,6 +257,32 @@ textarea {
 textarea {
   min-height: 130px;
   resize: vertical;
+}
+
+/* Style select fields similar to inputs */
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e2e2;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: #fff;
+  appearance: none;
+  /* Ensure the dropdown text uses the same colour as input fields */
+  color: var(--dark-text);
+}
+
+/* Explicitly style the guest dropdown to match other fields. The `guest-select` class
+   is applied to the select element in the RSVP form. */
+.guest-select {
+  background-color: #fff;
+  color: var(--dark-text);
+}
+
+/* Lighten the first option (placeholder) in the dropdown */
+select option[value=""] {
+  color: #888;
 }
 
 .rsvp .note {
