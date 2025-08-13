@@ -120,14 +120,15 @@
         <!-- Disable default captcha so guests don't have to solve puzzles -->
         <input type="hidden" name="_captcha" value="false">
         <div class="row">
-          <input type="text" name="first_name" placeholder="First Name" required>
-          <input type="text" name="last_name" placeholder="Last Name" required>
+          <!-- Mark required fields with an asterisk so guests know they are mandatory -->
+          <input type="text" name="first_name" placeholder="First Name *" required>
+          <input type="text" name="last_name" placeholder="Last Name *" required>
         </div>
         <div class="row">
-          <input type="email" name="email" placeholder="Your Email" required>
-          <!-- Change the guest count field to a dropdown list for easier selection -->
+          <input type="email" name="email" placeholder="Your Email *" required>
+          <!-- Change the guest count field to a dropdown list for easier selection and mark as required -->
           <select name="guests" required>
-            <option value="" disabled selected>Number of Guests</option>
+            <option value="" disabled selected>Number of Guests *</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

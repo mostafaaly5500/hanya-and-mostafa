@@ -149,4 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // See README or instructions for setting up the script: it should accept POST requests
 // with the RSVP data and append a new row to the sheet. Once created, paste the
 // deployed web app URL as the value below.
-const SHEET_ENDPOINT = "";
+// The Google Apps Script Web App endpoint that logs RSVP data. This endpoint
+// should write RSVP submissions to the "website rsvp" tab of your tracking sheet.
+// See instructions for setting up the script. If left empty, no data will be logged.
+const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwqv_Ww3GmoLdYS7ZvXG8Yxkel3Sc2toEIIGL-_Nj94TcLTfkoiMoy5eOvSKtaSl6-C/exec";

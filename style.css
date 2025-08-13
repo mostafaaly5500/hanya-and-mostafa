@@ -269,6 +269,13 @@ select {
   font-size: 16px;
   background-color: #fff;
   appearance: none;
+  /* Ensure the dropdown text uses the same colour as input fields */
+  color: var(--dark-text);
+}
+
+/* Lighten the first option (placeholder) in the dropdown */
+select option[value=""] {
+  color: #888;
 }
 
 .rsvp .note {
