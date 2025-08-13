@@ -22,12 +22,13 @@
     </div>
     <div class="wrap">
       <a href="#home">Home</a>
-      <a href="#story">Our Story</a>
+      <!-- Removed "Our Story" link -->
       <a href="#details">Details</a>
       <a href="#schedule">Schedule</a>
-      <a href="#gallery">Gallery</a>
+      <!-- Removed "Gallery" link -->
       <a href="#rsvp">RSVP</a>
       <a href="#location">Location</a>
+      <a href="#travel">Travel &amp; Stay</a>
       <a href="#save-date">Save the Date</a>
     </div>
   </nav>
@@ -60,7 +61,7 @@
   </section>
 
   <!-- Story Section -->
-  <section id="story" class="section">
+  <section id="story" class="section" style="display:none;">
     <div class="card">
       <div class="kicker">Our Story</div>
       <h2>How We Met</h2>
@@ -80,17 +81,12 @@
       <h2>Wedding Details</h2>
       <ul class="details">
         <li><strong>Date:</strong> Friday, 28 November&nbsp;2025</li>
-        <li><strong>Time:</strong> 5:00&nbsp;PM&nbsp;&ndash;&nbsp;Midnight</li>
+        <li><strong>Time:</strong> 6:00&nbsp;PM&nbsp;&ndash;&nbsp;Midnight</li>
         <li><strong>Venue:</strong> Crowne Plaza West Cairo&nbsp;Arkan, Sheikh Zayed City</li>
         <li><strong>Dress Code:</strong> Black Tie</li>
-        <li><strong>Capacity:</strong> Our pillar‑less Gala ballroom can comfortably accommodate up to 500 guests</li>
+        <!-- Capacity removed -->
       </ul>
-      <p>
-        Part of the iconic Arkan Plaza complex, Crowne Plaza West Cairo&nbsp;Arkan is located in the
-        heart of Sheikh Zayed City just off the 26th of July Corridor. The hotel is about a 38‑minute
-        drive from Cairo International Airport, making it easily accessible for our friends and family
-        traveling from around the world.
-      </p>
+      <!-- Removed detailed venue description paragraph -->
     </div>
   </section>
 
@@ -111,7 +107,7 @@
   </section>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="section">
+  <section id="gallery" class="section" style="display:none;">
     <div class="card">
       <div class="kicker">Gallery</div>
       <h2>Our Engagement</h2>
@@ -140,17 +136,17 @@
         <!-- Disable default captcha so guests don't have to solve puzzles -->
         <input type="hidden" name="_captcha" value="false">
         <div class="row">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="first_name" placeholder="First Name" required>
+          <input type="text" name="last_name" placeholder="Last Name" required>
         </div>
         <div class="row">
+          <input type="email" name="email" placeholder="Your Email" required>
           <input type="number" name="guests" placeholder="Number of Guests" min="1" max="10" required>
-          <input type="text" name="food" placeholder="Dietary Preferences">
         </div>
         <textarea name="message" placeholder="Message / Song Request"></textarea>
         <button type="submit" class="btn">Send RSVP</button>
         <p class="note">
-          Once submitted, you'll receive a confirmation email. Thank you for helping us plan our big day!
+          Kindly RSVP by <strong>September&nbsp;10,&nbsp;2025</strong>. Once submitted, you'll receive a confirmation email.
         </p>
       </form>
     </div>
@@ -179,6 +175,33 @@
     </div>
   </section>
 
+  <!-- Travel & Stay Section -->
+  <section id="travel" class="section">
+    <div class="card">
+      <div class="kicker">Travel &amp; Accommodation</div>
+      <h2>Travel &amp; Stay</h2>
+      <p>
+        We want your journey to be seamless. Here are some helpful tips on getting to and staying near our venue.
+      </p>
+      <h3>Hotels Nearby</h3>
+      <ul class="details">
+        <li><strong>Staybridge Suites</strong> – Connected to Arkan Plaza, offering spacious suites and complimentary breakfast.</li>
+        <li><strong>Hilton Pyramids Golf</strong> – A short drive away, perfect for guests who want a resort experience.</li>
+        <li><strong>Novotel Cairo 6th of October</strong> – Modern rooms with easy access to the 26th of July Corridor.</li>
+      </ul>
+      <h3>Transportation</h3>
+      <ul class="details">
+        <li>Use ride‑hailing apps like <strong>Uber</strong> or <strong>Careem</strong> to reach the venue safely.</li>
+        <li>Taxis are readily available; ask for Arkan Plaza in Sheikh Zayed.</li>
+        <li>On‑site valet parking is available at Crowne Plaza for your convenience.</li>
+      </ul>
+      <h3>Parking</h3>
+      <p>
+        Arkan Plaza provides covered parking garages and valet service. Simply follow the signs for event parking and the attendants will direct you.
+      </p>
+    </div>
+  </section>
+
   <!-- QR Code Section -->
   <!-- Save the Date Section -->
   <section id="save-date" class="section">
@@ -191,9 +214,22 @@
         you automatic reminders so you never miss the celebration.
       </p>
       <!-- Button links to downloadable .ics file -->
-      <a href="event.ics" download class="btn" style="margin-top:10px;">Add to Calendar</a>
-      <p class="note">Most phones will ask to import the event after downloading. You can set
-        your own reminders inside your calendar app.</p>
+      <a href="event.ics" download class="btn" style="margin-top:10px;">Download .ics Event</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hanya%20%26%20Mostafa%20Wedding&amp;dates=20251128T160000/20251128T235900&amp;details=Join%20us%20for%20our%20wedding%20celebration!&amp;location=Crowne%20Plaza%20West%20Cairo%20Arkan,%20Sheikh%20Zayed&amp;sf=true&amp;output=xml" target="_blank" class="btn" style="margin-top:10px;margin-left:10px;">Add to Google Calendar</a>
+      <p class="note">After downloading the .ics file or using Google Calendar, set your own reminders inside your calendar app.</p>
+
+      <h3 style="margin-top:20px;">Get a Reminder</h3>
+      <p>Enter your email below and we'll send you a reminder a few days before the wedding.</p>
+      <form action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST" class="reminder-form">
+        <input type="hidden" name="_subject" value="Wedding Reminder Signup">
+        <input type="hidden" name="_cc" value="hanyatamer5@gmail.com">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="row">
+          <input type="email" name="email" placeholder="Your Email" required>
+          <button type="submit" class="btn">Sign Up</button>
+        </div>
+        <p class="note">We'll only use your email to send one friendly reminder.</p>
+      </form>
     </div>
   </section>
 

@@ -78,26 +78,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const rsvpForm = document.querySelector('#rsvp form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (event) => {
+      event.preventDefault();
       const guestsInput = rsvpForm.querySelector('input[name="guests"]');
       const guestAmount = parseInt(guestsInput && guestsInput.value, 10) || 1;
-      // Send update request to CountAPI and then submit the form
+      // Prepare data for optional Google Sheet logging
+      const data = {
+        first_name: rsvpForm.querySelector('input[name="first_name"]')?.value || '',
+        last_name: rsvpForm.querySelector('input[name="last_name"]')?.value || '',
+        email: rsvpForm.querySelector('input[name="email"]')?.value || '',
+        guests: guestAmount,
+        song_request: rsvpForm.querySelector('textarea[name="message"]')?.value || '',
+        submitted_at: new Date().toISOString(),
+      };
+      // Update CountAPI and then optionally send to Google Sheet and submit the FormSubmit
       fetch(`https://api.countapi.xyz/update/hanya_mostafa_wedding/guestCount?amount=${guestAmount}`)
         .then((res) => res.json())
-        .then((data) => {
+        .then((countData) => {
           if (guestCounterEl) {
             guestCounterEl.style.display = 'inline-block';
-            guestCounterEl.textContent = `Confirmed Guests: ${data.value}`;
+            guestCounterEl.textContent = `Confirmed Guests: ${countData.value}`;
           }
-          // After updating the counter, allow the form to submit normally
-          rsvpForm.submit();
         })
-        .catch(() => {
-          // Even if update fails, still submit the form
+        .finally(() => {
+          // If a sheet endpoint is provided, log RSVP details to the sheet
+          if (typeof SHEET_ENDPOINT !== 'undefined' && SHEET_ENDPOINT) {
+            fetch(SHEET_ENDPOINT, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }).catch(() => {
+              // ignore network errors
+            });
+          }
+          // Submit the form normally (will send via FormSubmit)
           rsvpForm.submit();
         });
-      // Prevent the default immediate submission to wait for the update call
-      event.preventDefault();
     });
+  }
+
+  // RSVP deadline enforcement
+  if (rsvpForm) {
+    const RSVP_DEADLINE = new Date('2025-09-10T23:59:59+02:00');
+    const now = new Date();
+    if (now > RSVP_DEADLINE) {
+      rsvpForm.querySelectorAll('input, textarea, button').forEach((el) => {
+        el.disabled = true;
+      });
+      const closedMsg = document.createElement('p');
+      closedMsg.classList.add('note');
+      closedMsg.textContent = 'RSVPs are now closed.';
+      rsvpForm.parentElement.appendChild(closedMsg);
+    }
   }
 
   // Mobile navigation toggle
@@ -109,3 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Optional: define Google Sheets endpoint for RSVP data logging. To enable logging,
+// set SHEET_ENDPOINT to your deployed Apps Script web app URL.
+const SHEET_ENDPOINT = "";
