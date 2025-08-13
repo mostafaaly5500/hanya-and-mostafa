@@ -234,6 +234,8 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
 .rsvp form .row {
   display: grid;
   gap: 12px;
+  /* Ensure equal vertical spacing between input rows */
+  margin-bottom: 12px;
 }
 
 @media (min-width: 600px) {

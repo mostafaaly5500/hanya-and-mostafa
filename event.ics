@@ -2,12 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Hanya & Mostafa Wedding//hanya-mostafa-wedding//EN
 BEGIN:VEVENT
-DTSTART;TZID=Africa/Cairo:20251128T170000
-DTEND;TZID=Africa/Cairo:20251129T000000
+DTSTART;TZID=Africa/Cairo:20251128T180000
+DTEND;TZID=Africa/Cairo:20251129T010000
 DTSTAMP:20250809T000000Z
 UID:hanya-mostafa-wedding@example.com
 SUMMARY:Hanya & Mostafa Wedding
 LOCATION:Crowne Plaza Arkan, Sheikh Zayed, Egypt
 DESCRIPTION:Join us to celebrate our wedding! Visit our website for full details.
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Hanya & Mostafa's wedding is one week away!
+END:VALARM
 END:VEVENT
 END:VCALENDAR
