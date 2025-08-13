@@ -75,12 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Intercept RSVP form submission to update guest counter
-  const rsvpForm = document.querySelector('#rsvp form');
+    const rsvpForm = document.querySelector('#rsvp form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const guestsInput = rsvpForm.querySelector('input[name="guests"]');
-      const guestAmount = parseInt(guestsInput && guestsInput.value, 10) || 1;
+      // Grab the selected number of guests from the dropdown
+      const guestsSelect = rsvpForm.querySelector('select[name="guests"]');
+      const guestAmount = parseInt(guestsSelect && guestsSelect.value, 10) || 1;
       // Prepare data for optional Google Sheet logging
       const data = {
         first_name: rsvpForm.querySelector('input[name="first_name"]')?.value || '',
@@ -144,5 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Optional: define Google Sheets endpoint for RSVP data logging. To enable logging,
-// set SHEET_ENDPOINT to your deployed Apps Script web app URL.
+// set SHEET_ENDPOINT to the Web App URL of a Google Apps Script bound to your tracking sheet.
+// See README or instructions for setting up the script: it should accept POST requests
+// with the RSVP data and append a new row to the sheet. Once created, paste the
+// deployed web app URL as the value below.
 const SHEET_ENDPOINT = "";

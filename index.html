@@ -142,8 +142,23 @@
         </div>
         <div class="row">
           <input type="email" name="email" placeholder="Your Email" required>
-          <input type="number" name="guests" placeholder="Number of Guests" min="1" max="10" required>
+          <!-- Change the guest count field to a dropdown list for easier selection -->
+          <select name="guests" required>
+            <option value="" disabled selected>Number of Guests</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
+        <!-- Note to remind guests to include themselves when selecting the number of attendees -->
+        <p class="note" style="margin-top:-5px; font-size: 13px; color: #666;">Please include yourself when selecting the number of guests.</p>
         <textarea name="message" placeholder="Message / Song Request"></textarea>
         <button type="submit" class="btn">Send RSVP</button>
         <p class="note">
@@ -186,7 +201,11 @@
       </p>
       <h3>Hotel at the Venue</h3>
       <p>
-        Stay right where the celebration takes place! <a href="https://www.ihg.com/crowneplaza/hotels/us/en/west-cairo/caiwc/hoteldetail?fromRedirect=true" target="_blank">Book a room at Crowne Plaza West Cairo Arkan</a> to enjoy the convenience of being just steps away from the festivities.
+        Stay right where the celebration takes place! We’ve negotiated a special rate for our guests.
+        <a href="https://www.ihg.com/crowneplaza/hotels/us/en/cairo/caisz/hoteldetail?fromRedirect=true&qSrt=sBR&qSlH=caisz&setPMCookies=true&qSHBrC=CP&qDest=Plot%2029%2C%20Arkan%20Plaza%2C%20Zayed%20Entrance%202%2C%20Cairo%2C%20EG&srb_u=1" target="_blank">
+          Book a room at Crowne Plaza West Cairo Arkan
+        </a>
+        to enjoy the convenience of being just steps away from the festivities. This link will take you directly to the hotel’s booking page.
       </p>
       <h3>Transportation &amp; Parking</h3>
       <ul class="details">
@@ -210,10 +229,9 @@
         add our wedding to your favourite calendar app. Once added, your calendar will send
         you automatic reminders so you never miss the celebration.
       </p>
-      <!-- Button links to downloadable .ics file -->
-      <a href="event.ics" download class="btn" style="margin-top:10px;">Download .ics Event</a>
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hanya%20%26%20Mostafa%20Wedding&amp;dates=20251128T160000/20251128T235900&amp;details=Join%20us%20for%20our%20wedding%20celebration!&amp;location=Crowne%20Plaza%20West%20Cairo%20Arkan,%20Sheikh%20Zayed&amp;sf=true&amp;output=xml" target="_blank" class="btn" style="margin-top:10px;margin-left:10px;">Add to Google Calendar</a>
-      <p class="note">After downloading the .ics file or using Google Calendar, set your own reminders inside your calendar app.</p>
+      <!-- Single button to download the universal event file (works on both iOS and Android) -->
+      <a href="event.ics" download class="btn" style="margin-top:10px;">Add to Calendar</a>
+      <p class="note">After adding the event, please check that your calendar app has a reminder set to alert you ahead of time.</p>
 
       <!-- Note: Guests who RSVP will receive a friendly reminder via email one week before the wedding. -->
       <p class="note" style="margin-top:20px;">If you RSVP, we'll send you a reminder one week before the wedding.</p>
