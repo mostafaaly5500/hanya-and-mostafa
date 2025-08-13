@@ -84,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const guestAmount = parseInt(guestsField && guestsField.value, 10) || 1;
       // Prepare data for optional Google Sheet logging
       const data = {
+        // Specify the sheet/tab to write RSVP submissions to. Your Apps Script should route
+        // incoming data to the correct worksheet based on this property. The tab name
+        // must match exactly with your Google Sheet’s tab (e.g. "website rsvp").
+        sheet: 'website rsvp',
         first_name: rsvpForm.querySelector('input[name="first_name"]')?.value || '',
         last_name: rsvpForm.querySelector('input[name="last_name"]')?.value || '',
         email: rsvpForm.querySelector('input[name="email"]')?.value || '',

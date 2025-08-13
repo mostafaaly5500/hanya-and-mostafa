@@ -125,9 +125,9 @@
           <input type="text" name="last_name" placeholder="Last Name *" required>
         </div>
         <div class="row">
-          <input type="email" name="email" placeholder="Your Email *" required>
+          <input type="email" name="email" placeholder="Your Email *" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
           <!-- Change the guest count field to a dropdown list for easier selection and mark as required -->
-          <select name="guests" required>
+          <select name="guests" required class="guest-select">
             <option value="" disabled selected>Number of Guests *</option>
             <option value="1">1</option>
             <option value="2">2</option>

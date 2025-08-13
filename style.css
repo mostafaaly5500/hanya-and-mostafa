@@ -273,6 +273,13 @@ select {
   color: var(--dark-text);
 }
 
+/* Explicitly style the guest dropdown to match other fields. The `guest-select` class
+   is applied to the select element in the RSVP form. */
+.guest-select {
+  background-color: #fff;
+  color: var(--dark-text);
+}
+
 /* Lighten the first option (placeholder) in the dropdown */
 select option[value=""] {
   color: #888;
