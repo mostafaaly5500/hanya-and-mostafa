@@ -65,11 +65,13 @@ body {
   min-height: 75vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* Position hero content lower to prevent names overlapping faces */
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 80px 20px;
+  /* Increase top padding and move content towards bottom for better photo composition */
+  padding: 140px 20px 60px 20px;
 /* The hero section uses the main photo as a backdrop. A darker overlay helps the white text remain readable across devices. */
 background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)), url('hero.jpg');
   background-size: cover;
@@ -87,7 +89,8 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
 .hero h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 68px;
-  margin: 15px 0;
+  /* Increase top margin so names sit lower in the hero banner */
+  margin: 100px 0 20px 0;
   letter-spacing: 1px;
 }
 
@@ -254,6 +257,23 @@ textarea {
   font-size: 16px;
 }
 
+/* Ensure number inputs use the same text colour as other inputs and remove spin buttons */
+input[type="number"] {
+  color: var(--dark-text);
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Consistent placeholder colour across inputs and textarea */
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
 textarea {
   min-height: 130px;
   resize: vertical;
@@ -280,10 +300,7 @@ select {
   color: var(--dark-text);
 }
 
-/* Lighten the first option (placeholder) in the dropdown */
-select option[value=""] {
-  color: #888;
-}
+/* Lighten rule removed since the guest count field is now an input */
 
 .rsvp .note {
   font-size: 14px;

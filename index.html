@@ -126,20 +126,8 @@
         </div>
         <div class="row">
           <input type="email" name="email" placeholder="Your Email *" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
-          <!-- Change the guest count field to a dropdown list for easier selection and mark as required -->
-          <select name="guests" required class="guest-select">
-            <option value="" disabled selected>Number of Guests *</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+          <!-- Replace dropdown with a numeric field so the placeholder colour matches other inputs -->
+          <input type="number" name="guests" placeholder="Number of Guests *" min="1" max="10" required>
         </div>
         <!-- Note to remind guests to include themselves when selecting the number of attendees -->
         <p class="note" style="margin-top:-5px; font-size: 13px; color: #666;">Please include yourself when selecting the number of guests.</p>
@@ -149,6 +137,22 @@
           Kindly RSVP by <strong>September&nbsp;10,&nbsp;2025</strong>. Once submitted, you'll receive a confirmation email.
         </p>
       </form>
+    </div>
+  </section>
+
+  <!-- Save the Date Section inserted here after RSVP -->
+  <section id="save-date" class="section">
+    <div class="card">
+      <div class="kicker">Save The Date</div>
+      <h2>Add To Your Calendar</h2>
+      <p>
+        Keep our big day close at hand! Tap the button below to download an event file and
+        add our wedding to your favourite calendar app. Once added, your calendar will send
+        you automatic reminders so you never miss the celebration.
+      </p>
+      <a href="event.ics" download class="btn" style="margin-top:10px;">Add to Calendar</a>
+      <p class="note">After adding the event, please check that your calendar app has a reminder set to alert you ahead of time.</p>
+      <p class="note" style="margin-top:20px;">If you RSVP, we'll send you a reminder one week before the wedding.</p>
     </div>
   </section>
 
@@ -203,8 +207,8 @@
   </section>
 
   <!-- QR Code Section -->
-  <!-- Save the Date Section -->
-  <section id="save-date" class="section">
+  <!-- Save the Date Section (hidden here; moved below RSVP) -->
+  <section id="save-date-original" class="section" style="display:none;">
     <div class="card">
       <div class="kicker">Save The Date</div>
       <h2>Add To Your Calendar</h2>
