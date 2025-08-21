@@ -71,7 +71,8 @@ body {
   text-align: center;
   color: #fff;
   /* Increase top padding and move content towards bottom for better photo composition */
-  padding: 140px 20px 60px 20px;
+  /* Bump up the top padding slightly so the names sit lower, clearing their faces in the background photo */
+  padding: 160px 20px 60px 20px;
 /* The hero section uses the main photo as a backdrop. A darker overlay helps the white text remain readable across devices. */
 background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)), url('hero.jpg');
   background-size: cover;
@@ -90,7 +91,7 @@ background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6
   font-family: 'Great Vibes', cursive;
   font-size: 68px;
   /* Increase top margin so names sit lower in the hero banner */
-  margin: 100px 0 20px 0;
+  margin: 120px 0 20px 0;
   letter-spacing: 1px;
 }
 
