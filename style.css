@@ -309,6 +309,18 @@ select {
   margin-top: 10px;
 }
 
+/* Style for the thank-you message displayed after a successful RSVP submission */
+.success-message {
+  font-size: 18px;
+  margin-top: 20px;
+  line-height: 1.5;
+  color: var(--dark-text);
+  background: #f9f9fb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
 /* Map */
 .map {
   border: 0;

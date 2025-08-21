@@ -113,13 +113,21 @@
       <p>Please let us know if you'll be joining us on our special day.</p>
       <!-- Live guest counter displays total confirmed attendees based on RSVP submissions -->
       <div id="guestCounter" class="guest-counter">Confirmed Guests: 0</div>
-      <form action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST">
+      <!--
+        The RSVP form submits data to FormSubmit. We assign an id so we can intercept
+        the submission with JavaScript. We intentionally avoid using the _next hidden
+        field so the page does not redirect away from our site. Instead, we handle
+        the submission via fetch in the script below and show a thank‑you message on
+        this page without navigation.
+      -->
+      <form id="rsvpForm" action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST">
         <!-- formsubmit hidden inputs -->
         <input type="hidden" name="_subject" value="Wedding RSVP">
         <!-- Send a copy of the RSVP to Hanya as well -->
         <input type="hidden" name="_cc" value="hanyatamer5@gmail.com">
         <!-- Disable default captcha so guests don't have to solve puzzles -->
         <input type="hidden" name="_captcha" value="false">
+        <!-- Do not include the _next hidden field so FormSubmit doesn’t redirect away from our site. -->
         <div class="row">
           <!-- Mark required fields with an asterisk so guests know they are mandatory -->
           <input type="text" name="first_name" placeholder="First Name *" required>
@@ -284,6 +292,90 @@
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
+      }
+
+      // If the page was redirected back from FormSubmit with a success flag, display a thank you message
+      (function handleRsvpSuccess() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('rsvp') === 'thanks') {
+          const rsvpSection = document.getElementById('rsvp');
+          if (rsvpSection) {
+            const card = rsvpSection.querySelector('.card');
+            const form = rsvpSection.querySelector('form');
+            if (form) {
+              // Remove the form to prevent multiple submissions
+              form.remove();
+            }
+            // Create and append a thank you message
+            const messageEl = document.createElement('p');
+            messageEl.className = 'success-message';
+            messageEl.textContent = 'Thank you for your RSVP! We can’t wait to celebrate with you.';
+            card.appendChild(messageEl);
+          }
+          // Remove the query parameter from the URL so the message doesn’t reappear on refresh
+          const url = new URL(window.location);
+          url.searchParams.delete('rsvp');
+          window.history.replaceState({}, '', url.pathname + url.hash);
+        }
+      })();
+
+      /*
+       * Intercept RSVP form submissions and send them via AJAX instead of allowing
+       * FormSubmit to navigate away. This keeps guests on the page and displays
+       * a success message directly in the RSVP section. The form’s action URL
+       * points to FormSubmit, but we override the default behaviour using
+       * preventDefault() and fetch() to submit the data asynchronously.
+       */
+      const rsvpForm = document.getElementById('rsvpForm');
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          // Collect form data into an object
+          const formData = new FormData(rsvpForm);
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+          try {
+            // Use the FormSubmit AJAX endpoint to post the RSVP
+            const response = await fetch('https://formsubmit.co/ajax/mostafaaly5500@gmail.com', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            // Remove the form to prevent duplicate submissions
+            rsvpForm.remove();
+            const card = document.querySelector('#rsvp .card');
+            if (card) {
+              // Create a thank‑you message element and append it
+              const messageEl = document.createElement('p');
+              messageEl.className = 'success-message';
+              messageEl.textContent = 'Thank you for your RSVP! We can’t wait to celebrate with you.';
+              card.appendChild(messageEl);
+            }
+            // Optionally, update the guest counter by incrementing it with the submitted number of guests
+            const guestsNum = parseInt(data.guests || '0', 10);
+            if (!isNaN(guestsNum)) {
+              const counterEl = document.getElementById('guestCounter');
+              if (counterEl) {
+                // Extract the current number from the text and add the new guests
+                const match = counterEl.textContent.match(/\d+/);
+                let current = match ? parseInt(match[0], 10) : 0;
+                current += guestsNum;
+                counterEl.textContent = 'Confirmed Guests: ' + current;
+              }
+            }
+          } catch (error) {
+            // If an error occurs, show an alert to the user
+            alert('Oops! There was a problem submitting your RSVP. Please try again later.');
+          }
+        });
       }
     });
   </script>
