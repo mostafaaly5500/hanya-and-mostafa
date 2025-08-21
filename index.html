@@ -120,7 +120,7 @@
         the submission via fetch in the script below and show a thank‑you message on
         this page without navigation.
       -->
-      <form id="rsvpForm" action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST">
+      <form id="rsvpForm" action="https://formsubmit.co/mostafaaly5500@gmail.com" method="POST" target="hidden_iframe">
         <!-- formsubmit hidden inputs -->
         <input type="hidden" name="_subject" value="Wedding RSVP">
         <!-- Send a copy of the RSVP to Hanya as well -->
@@ -146,6 +146,14 @@
           Kindly RSVP by <strong>September&nbsp;10,&nbsp;2025</strong>. Once submitted, you'll receive a confirmation email.
         </p>
       </form>
+
+      <!--
+        Hidden iframe to receive the FormSubmit response. By setting the form’s
+        target to this iframe, we ensure that the user remains on our page
+        instead of being redirected to FormSubmit’s thank‑you page. The iframe
+        has no visible size.
+      -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
     </div>
   </section>
 
@@ -320,61 +328,37 @@
       })();
 
       /*
-       * Intercept RSVP form submissions and send them via AJAX instead of allowing
-       * FormSubmit to navigate away. This keeps guests on the page and displays
-       * a success message directly in the RSVP section. The form’s action URL
-       * points to FormSubmit, but we override the default behaviour using
-       * preventDefault() and fetch() to submit the data asynchronously.
+       * Handle RSVP form submissions by submitting to a hidden iframe. This keeps
+       * guests on our page while the form data is sent to FormSubmit. After
+       * submission, we display a thank‑you message and update the guest counter.
        */
       const rsvpForm = document.getElementById('rsvpForm');
       if (rsvpForm) {
-        rsvpForm.addEventListener('submit', async (event) => {
-          event.preventDefault();
-          // Collect form data into an object
-          const formData = new FormData(rsvpForm);
-          const data = {};
-          formData.forEach((value, key) => {
-            data[key] = value;
-          });
-          try {
-            // Use the FormSubmit AJAX endpoint to post the RSVP
-            const response = await fetch('https://formsubmit.co/ajax/mostafaaly5500@gmail.com', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify(data)
-            });
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            // Remove the form to prevent duplicate submissions
-            rsvpForm.remove();
-            const card = document.querySelector('#rsvp .card');
+        rsvpForm.addEventListener('submit', (event) => {
+          // Wait briefly to ensure the POST request is sent to the hidden iframe
+          setTimeout(() => {
+            const card = rsvpForm.closest('.card');
             if (card) {
-              // Create a thank‑you message element and append it
+              // Remove the form to prevent multiple submissions
+              rsvpForm.remove();
+              // Append a thank‑you message
               const messageEl = document.createElement('p');
               messageEl.className = 'success-message';
               messageEl.textContent = 'Thank you for your RSVP! We can’t wait to celebrate with you.';
               card.appendChild(messageEl);
-            }
-            // Optionally, update the guest counter by incrementing it with the submitted number of guests
-            const guestsNum = parseInt(data.guests || '0', 10);
-            if (!isNaN(guestsNum)) {
-              const counterEl = document.getElementById('guestCounter');
-              if (counterEl) {
-                // Extract the current number from the text and add the new guests
-                const match = counterEl.textContent.match(/\d+/);
-                let current = match ? parseInt(match[0], 10) : 0;
-                current += guestsNum;
-                counterEl.textContent = 'Confirmed Guests: ' + current;
+              // Update guest counter based on the number entered
+              const guestsNum = parseInt(event.target.guests && event.target.guests.value || '0', 10);
+              if (!isNaN(guestsNum)) {
+                const counterEl = document.getElementById('guestCounter');
+                if (counterEl) {
+                  const match = counterEl.textContent.match(/\d+/);
+                  let current = match ? parseInt(match[0], 10) : 0;
+                  current += guestsNum;
+                  counterEl.textContent = 'Confirmed Guests: ' + current;
+                }
               }
             }
-          } catch (error) {
-            // If an error occurs, show an alert to the user
-            alert('Oops! There was a problem submitting your RSVP. Please try again later.');
-          }
+          }, 500);
         });
       }
     });
