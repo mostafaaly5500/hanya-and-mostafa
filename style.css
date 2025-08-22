@@ -301,6 +301,11 @@ select {
   color: var(--dark-text);
 }
 
+/* Style the placeholder option in the guest dropdown to use the same placeholder colour as other inputs */
+.guest-select option[disabled] {
+  color: #999;
+}
+
 /* Lighten rule removed since the guest count field is now an input */
 
 .rsvp .note {

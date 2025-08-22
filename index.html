@@ -135,8 +135,12 @@
         </div>
         <div class="row">
           <input type="email" name="email" placeholder="Your Email *" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
-          <!-- Replace dropdown with a numeric field so the placeholder colour matches other inputs -->
-          <input type="number" name="guests" placeholder="Number of Guests *" min="1" max="10" required>
+          <!-- Dropdown to select the number of guests (1–2) while matching the appearance of other inputs -->
+          <select name="guests" required class="guest-select">
+            <option value="" disabled selected>Number of Guests *</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
         </div>
         <!-- Note to remind guests to include themselves when selecting the number of attendees -->
         <p class="note" style="margin-top:-5px; font-size: 13px; color: #666;">Please include yourself when selecting the number of guests.</p>
